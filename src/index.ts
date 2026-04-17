@@ -12,7 +12,13 @@ program
   .description("Markdown-driven AI orchestration CLI")
   .version("0.1.0")
   .argument("<file>", "Markdown file to execute")
-  .action((file: string) => {
+  .option("--limit <n>", "Max total script execution attempts (initial runs + fix retries)", "50")
+  .action((file: string, options: { limit: string }) => {
+    const limit = parseInt(options.limit, 10);
+    if (isNaN(limit) || limit < 1) {
+      printError("--limit must be a positive integer");
+      process.exit(1);
+    }
     const filePath = resolve(process.cwd(), file);
     let content: string;
     try {
@@ -22,7 +28,7 @@ program
       process.exit(1);
     }
     const elements = parse(content);
-    run(elements).catch((err) => {
+    run(elements, limit).catch((err) => {
       printError(String(err));
       process.exit(1);
     });

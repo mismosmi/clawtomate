@@ -54,4 +54,5 @@ export type HistoryEntry =
 export type SessionContext = {
   historyFile: string;
   history: HistoryEntry[];
+  iterationsLeft: number;
 };

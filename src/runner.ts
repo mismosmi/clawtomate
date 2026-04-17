@@ -8,12 +8,12 @@ import { resolveModelAlias, getDefaultModel } from './models.js';
 import { printHeadline, printModel, printError } from './display.js';
 import { appendHistory } from './history.js';
 
-export async function run(elements: ParsedElement[]): Promise<void> {
+export async function run(elements: ParsedElement[], limit = 50): Promise<void> {
   const historyDir = mkdtempSync(join(tmpdir(), 'mdrun-session-'));
   const historyFile = join(historyDir, 'history.json');
   writeFileSync(historyFile, '[]', 'utf8');
 
-  const context: SessionContext = { historyFile, history: [] };
+  const context: SessionContext = { historyFile, history: [], iterationsLeft: limit };
   const session = new Session();
   const breadcrumbs: string[] = [];
 

@@ -62,6 +62,11 @@ export async function executeBlock(
   appendHistory(context, { type: 'code', language: block.language, script });
 
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    if (context.iterationsLeft <= 0) {
+      throw new Error('Iteration limit reached');
+    }
+    context.iterationsLeft--;
+
     process.stdout.write(
       pc.dim(`\n[${block.language}] ${attempt > 0 ? `retry ${attempt}` : 'running'}\n`)
     );
