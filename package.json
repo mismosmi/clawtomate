@@ -1,0 +1,28 @@
+{
+  "name": "clawtomate",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "clawtomate": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "latest",
+    "@ai-sdk/google": "latest",
+    "@ai-sdk/openai": "latest",
+    "ai": "latest",
+    "commander": "^14.0.3",
+    "marked": "latest",
+    "picocolors": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}
