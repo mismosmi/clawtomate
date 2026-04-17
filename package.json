@@ -11,12 +11,18 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@ai-sdk/amazon-bedrock": "latest",
     "@ai-sdk/anthropic": "latest",
+    "@ai-sdk/azure": "latest",
+    "@ai-sdk/deepseek": "latest",
     "@ai-sdk/google": "latest",
+    "@ai-sdk/mistral": "latest",
     "@ai-sdk/openai": "latest",
+    "@openrouter/ai-sdk-provider": "latest",
     "ai": "latest",
     "commander": "^14.0.3",
     "marked": "latest",
+    "ollama-ai-provider": "latest",
     "picocolors": "latest",
     "zod": "latest"
   },

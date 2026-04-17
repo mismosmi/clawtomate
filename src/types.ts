@@ -26,7 +26,17 @@ export type ParsedElement =
   | PromptElement
   | CodeBlockElement;
 
-export type ProviderName = 'anthropic' | 'openai' | 'google';
+export type ProviderName =
+  | 'anthropic'
+  | 'openai'
+  | 'google'
+  | 'mistral'
+  | 'openrouter'
+  | 'bedrock'
+  | 'azure'
+  | 'deepseek'
+  | 'gateway'
+  | 'ollama';
 
 export type ModelSpec = {
   provider: ProviderName;
