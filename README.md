@@ -19,3 +19,15 @@ Use code blocks to create validation steps. They will be executed. If a script e
 to fix the error until the script exits with 0.
 
 That's about it.
+
+## How to
+
+### Setup
+```bash
+npm i -g clawtomate
+```
+
+### Run
+```bash
+clawtomate example.md
+```
